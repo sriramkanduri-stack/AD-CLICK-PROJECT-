@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Run Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='default.css') }}">
+</head>
+<body class="app-page centered">
+    <main class="upload-card">
+        <a class="back-link" href="/Dashboard">Back to dashboard</a>
+        <p class="eyebrow">Prediction</p>
+        <h1>Upload test click data</h1>
+        <p class="muted">Choose a CSV file with the same feature columns as the training dataset.</p>
+        {% if msg %}
+        <p class="alert">{{ msg }}</p>
+        {% endif %}
+        <form action="/PredictAction" method="post" enctype="multipart/form-data" class="form">
+            <label for="file">CSV file</label>
+            <input id="file" type="file" name="file" accept=".csv" required>
+            <button class="button button-primary full" type="submit">Predict Fraud</button>
+        </form>
+    </main>
+</body>
+</html>

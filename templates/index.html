@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ad Click Fraud Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='default.css') }}">
+</head>
+<body class="home-page">
+    <main class="hero">
+        <nav class="nav">
+            <a class="brand" href="/index">Ad Click Fraud Detection</a>
+            <div class="nav-actions">
+                <a href="/index">Home</a>
+                <a class="button button-primary" href="/UserLogin">Login</a>
+            </div>
+        </nav>
+
+        <section class="hero-content">
+            <p class="eyebrow">Machine Learning and Deep Learning</p>
+            <h1>Detect suspicious ad clicks before they drain your campaign budget.</h1>
+            <p class="hero-copy">
+                Upload clickstream test data, classify bot activity, and compare model performance from one clean dashboard.
+            </p>
+            <div class="hero-actions">
+                <a class="button button-primary" href="/UserLogin">Open Dashboard</a>
+                <a class="button button-secondary" href="#overview">View Features</a>
+            </div>
+        </section>
+    </main>
+
+    <section id="overview" class="section">
+        <div class="section-header">
+            <p class="eyebrow">Project Overview</p>
+            <h2>Built for campaign protection</h2>
+            <p>
+                The system analyzes click behavior patterns and classifies traffic as human or fraudulent using trained ML and DL models.
+            </p>
+        </div>
+        <div class="feature-grid">
+            <article class="feature-card">
+                <span>01</span>
+                <h3>Behavior Analysis</h3>
+                <p>Reviews click frequency, session timing, device signals, and other dataset features.</p>
+            </article>
+            <article class="feature-card">
+                <span>02</span>
+                <h3>Bot Prediction</h3>
+                <p>Uses the existing trained model weights to classify uploaded test records.</p>
+            </article>
+            <article class="feature-card">
+                <span>03</span>
+                <h3>Performance View</h3>
+                <p>Compares accuracy and F-score across traditional and deep learning algorithms.</p>
+            </article>
+        </div>
+    </section>
+</body>
+</html>

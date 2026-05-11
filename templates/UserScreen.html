@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='default.css') }}">
+</head>
+<body class="app-page">
+    <nav class="app-topbar">
+        <a class="brand" href="/Dashboard">Fraud Detection</a>
+        <div class="nav-actions">
+            <a href="/Predict">Predict Again</a>
+            <a href="/Graph">Graph</a>
+            <a href="/Logout">Logout</a>
+        </div>
+    </nav>
+    <main class="results-shell">
+        {{ msg|safe }}
+    </main>
+</body>
+</html>

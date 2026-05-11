@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fraud Detection Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='default.css') }}">
+</head>
+<body class="app-page">
+    <nav class="app-topbar">
+        <a class="brand" href="/Dashboard">Fraud Detection</a>
+        <div class="nav-actions">
+            <a href="/index">Home</a>
+            <a href="/Logout">Logout</a>
+        </div>
+    </nav>
+
+    <main class="app-shell">
+        <aside class="side-panel">
+            <p class="eyebrow">Control Panel</p>
+            <h1>Ad Click Fraud Detection</h1>
+            <a class="button button-primary full" href="/Predict">Run Prediction</a>
+            <a class="button button-secondary full" href="/Graph">Result Graph</a>
+            <a class="button button-secondary full" href="/AllGraph">Algorithm Metrics</a>
+        </aside>
+
+        <section class="dashboard-main">
+            <div class="page-heading">
+                <p class="eyebrow">Dashboard</p>
+                <h2>Monitor, analyze, and classify click activity.</h2>
+            </div>
+            <div class="stat-grid">
+                <article class="stat-card">
+                    <span>Model</span>
+                    <strong>CNN + Attention</strong>
+                </article>
+                <article class="stat-card">
+                    <span>Input</span>
+                    <strong>CSV Test Data</strong>
+                </article>
+                <article class="stat-card">
+                    <span>Output</span>
+                    <strong>Human / Fraud</strong>
+                </article>
+            </div>
+            <div class="visual-panel">
+                <img src="{{ url_for('static', filename='mechanism.gif') }}" alt="Fraud detection workflow">
+            </div>
+        </section>
+    </main>
+</body>
+</html>

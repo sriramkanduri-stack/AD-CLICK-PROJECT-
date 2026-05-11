@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graph Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='default.css') }}">
+</head>
+<body class="app-page centered">
+    <main class="graph-card">
+        <a class="back-link" href="/Dashboard">Back to dashboard</a>
+        <p class="eyebrow">Result Graph</p>
+        <h1>Human and bot click detection</h1>
+        <div class="metric-pill">{{ prediction }}% bot clicks</div>
+        <img class="result-image" src="{{ url_for('static', filename='result.png') }}" alt="Human and bot click result graph">
+    </main>
+</body>
+</html>

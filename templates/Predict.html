@@ -1,25 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Run Prediction</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='default.css') }}">
+<title>Predict</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial;
+    background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.container{
+    background:rgba(255,255,255,0.1);
+    padding:40px;
+    border-radius:15px;
+    box-shadow:0 0 20px rgba(0,255,225,0.5);
+    text-align:center;
+}
+
+h1{
+    color:#00ffe1;
+}
+
+input, button{
+    margin-top:15px;
+    padding:10px;
+    border:none;
+    border-radius:8px;
+}
+
+button{
+    background:#00ff99;
+    cursor:pointer;
+}
+
+button:hover{
+    transform:scale(1.05);
+}
+</style>
+
 </head>
-<body class="app-page centered">
-    <main class="upload-card">
-        <a class="back-link" href="/Dashboard">Back to dashboard</a>
-        <p class="eyebrow">Prediction</p>
-        <h1>Upload test click data</h1>
-        <p class="muted">Choose a CSV file with the same feature columns as the training dataset.</p>
-        {% if msg %}
-        <p class="alert">{{ msg }}</p>
-        {% endif %}
-        <form action="/PredictAction" method="post" enctype="multipart/form-data" class="form">
-            <label for="file">CSV file</label>
-            <input id="file" type="file" name="file" accept=".csv" required>
-            <button class="button button-primary full" type="submit">Predict Fraud</button>
-        </form>
-    </main>
+
+<body>
+
+<div class="container">
+
+<h1>🤖 Upload Test Data</h1>
+
+<form action="/PredictAction" method="post" enctype="multipart/form-data">
+    <input type="file" name="file"><br>
+    <button type="submit">Predict</button>
+</form>
+
+<br>
+
+<!-- BACK BUTTON -->
+<button onclick="window.location.href='/Dashboard'">⬅ Back to Dashboard</button>
+
+</div>
+
 </body>
 </html>

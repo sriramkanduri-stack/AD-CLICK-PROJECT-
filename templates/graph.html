@@ -1,18 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Graph Result</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='default.css') }}">
+
+    <style>
+        .back-btn {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            padding: 8px 14px;
+            font-size: 14px;
+            font-weight: bold;
+            color: white;
+            background: #ff4d4d;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+    </style>
+
 </head>
-<body class="app-page centered">
-    <main class="graph-card">
-        <a class="back-link" href="/Dashboard">Back to dashboard</a>
-        <p class="eyebrow">Result Graph</p>
-        <h1>Human and bot click detection</h1>
-        <div class="metric-pill">{{ prediction }}% bot clicks</div>
-        <img class="result-image" src="{{ url_for('static', filename='result.png') }}" alt="Human and bot click result graph">
-    </main>
+
+<body style="background:black; color:white; text-align:center;">
+
+<h2>📊 Human & Bot Click Detection Graph Result</h2>
+
+<!-- SAFE BACK BUTTON -->
+<a href="/Dashboard">
+    <button class="back-btn">
+        🔙 Back
+    </button>
+</a>
+
+<img src="/static/result.png" width="500" style="border-radius:10px; box-shadow:0 0 10px cyan;">
+
+<br><br>
+
+<h3>: Bot Click Percentage {{ prediction }}%</h3>
+
 </body>
 </html>

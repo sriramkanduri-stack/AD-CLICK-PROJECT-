@@ -1,59 +1,175 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ad Click Fraud Detection</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='default.css') }}">
+<title>Ad Click Fraud Detection</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial, Helvetica, sans-serif;
+color:white;
+text-align:center;
+
+background-image:url("{{ url_for('static', filename='images/fraud.png') }}");
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+background-attachment:fixed;
+}
+
+/* dark overlay */
+.overlay{
+background:rgba(0,0,0,0.65);
+height:100vh;
+width:100%;
+position:absolute;
+top:0;
+left:0;
+}
+
+/* title */
+.title{
+font-size:60px;
+font-weight:bold;
+margin-top:80px;
+color:#00eaff;
+text-shadow:0 0 20px #00eaff;
+animation: glow 2s infinite alternate;
+}
+
+@keyframes glow{
+from{ text-shadow:0 0 10px #00eaff;}
+to{ text-shadow:0 0 30px #00eaff;}
+}
+
+/* buttons */
+.menu{
+margin-top:70px;
+}
+
+.menu button{
+padding:15px 35px;
+margin:15px;
+font-size:20px;
+border:none;
+border-radius:40px;
+cursor:pointer;
+color:white;
+background:linear-gradient(45deg,#00c6ff,#0072ff);
+transition:0.4s;
+}
+
+.menu button:hover{
+transform:scale(1.1);
+box-shadow:0 0 20px #00eaff;
+}
+
+/* description box */
+
+#descriptionBox{
+position:fixed;
+left:-800px;
+top:50%;
+transform:translateY(-50%);
+width:700px;
+background:rgba(0,0,0,0.9);
+padding:40px;
+border-radius:10px;
+font-size:22px;
+text-align:left;
+transition:1s;
+color:white;
+box-shadow:0 0 30px cyan;
+}
+
+#descriptionBox h2{
+color:#00eaff;
+}
+
+</style>
+
+<script>
+
+function showDescription(){
+
+var box=document.getElementById("descriptionBox");
+
+box.style.left="50%";
+box.style.transform="translate(-50%,-50%)";
+
+/* hide after 10 seconds */
+
+setTimeout(function(){
+
+box.style.left="-800px";
+
+},10000);
+
+}
+
+</script>
+
 </head>
-<body class="home-page">
-    <main class="hero">
-        <nav class="nav">
-            <a class="brand" href="/index">Ad Click Fraud Detection</a>
-            <div class="nav-actions">
-                <a href="/index">Home</a>
-                <a class="button button-primary" href="/UserLogin">Login</a>
-            </div>
-        </nav>
 
-        <section class="hero-content">
-            <p class="eyebrow">Machine Learning and Deep Learning</p>
-            <h1>Detect suspicious ad clicks before they drain your campaign budget.</h1>
-            <p class="hero-copy">
-                Upload clickstream test data, classify bot activity, and compare model performance from one clean dashboard.
-            </p>
-            <div class="hero-actions">
-                <a class="button button-primary" href="/UserLogin">Open Dashboard</a>
-                <a class="button button-secondary" href="#overview">View Features</a>
-            </div>
-        </section>
-    </main>
+<body>
 
-    <section id="overview" class="section">
-        <div class="section-header">
-            <p class="eyebrow">Project Overview</p>
-            <h2>Built for campaign protection</h2>
-            <p>
-                The system analyzes click behavior patterns and classifies traffic as human or fraudulent using trained ML and DL models.
-            </p>
-        </div>
-        <div class="feature-grid">
-            <article class="feature-card">
-                <span>01</span>
-                <h3>Behavior Analysis</h3>
-                <p>Reviews click frequency, session timing, device signals, and other dataset features.</p>
-            </article>
-            <article class="feature-card">
-                <span>02</span>
-                <h3>Bot Prediction</h3>
-                <p>Uses the existing trained model weights to classify uploaded test records.</p>
-            </article>
-            <article class="feature-card">
-                <span>03</span>
-                <h3>Performance View</h3>
-                <p>Compares accuracy and F-score across traditional and deep learning algorithms.</p>
-            </article>
-        </div>
-    </section>
+<div class="overlay">
+
+<div class="title">
+AD CLICK FRAUD DETECTION USING MACHINE LEARNING AND DEEP LEARNING
+</div>
+
+<!-- <div style="font-size:30px;margin-top:10px;color:#ffffff;">
+Machine Learning & Deep Learning
+</div> -->
+
+<div class="menu">
+
+<button onclick="window.location.href='index'">Home</button>
+
+<button onclick="window.location.href='UserLogin'">Login</button>
+
+<button onclick="showDescription()">Description</button>
+
+</div>
+
+</div>
+
+
+<div id="descriptionBox">
+
+<h2>Project Description</h2>
+
+<p>
+
+This project detects click fraud in online advertising using Machine Learning and Deep Learning models. By analyzing user behavior patterns, it identifies and filters fraudulent clicks, helping advertisers protect budgets and ensure reliable ad performance.
+
+<br><br>
+
+<b>Key Features of the Project:</b>
+
+<br><br>
+
+• Real-time click analysis  
+<br>
+• User behavior pattern recognition  
+<br>
+• Detection of abnormal click frequency  
+<br>
+• IP address and device tracking  
+<br>
+• Time-based activity analysis (click intervals, session patterns)  
+<br>
+• Machine Learning & Deep Learning model integration  
+<br>
+• High accuracy fraud classification  
+<br>
+• Scalable system for large datasets  
+
+</p>
+
+</div>
+
 </body>
 </html>

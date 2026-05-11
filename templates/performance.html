@@ -1,17 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Performance Graph</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='default.css') }}">
+<title>Performance Graph</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial;
+    background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    color:white;
+    text-align:center;
+}
+
+img{
+    margin-top:30px;
+    width:80%;
+    border-radius:10px;
+}
+
+.btn{
+    position:absolute;
+    top:20px;
+    right:20px;
+    padding:10px 20px;
+    background:#00ffe1;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+</style>
 </head>
-<body class="app-page centered">
-    <main class="graph-card">
-        <a class="back-link" href="/Dashboard">Back to dashboard</a>
-        <p class="eyebrow">Performance</p>
-        <h1>Algorithm performance</h1>
-        <img class="result-image" src="{{ graph }}" alt="Algorithm performance graph">
-    </main>
+
+<body>
+
+<button class="btn" onclick="window.location.href='/Dashboard'">
+⬅ Back to Dashboard
+</button>
+
+<h1>📊 Algorithm Performance</h1>
+
+<img src="{{graph}}">
+
 </body>
 </html>

@@ -1,79 +1,80 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All Algorithms Graph</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='default.css') }}">
+    <style>
+        .back-btn {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            padding: 8px 14px;
+            font-size: 14px;
+            font-weight: bold;
+            color: white;
+            background: #ff4d4d;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+    </style>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-<body class="app-page">
-    <nav class="app-topbar">
-        <a class="brand" href="/Dashboard">Fraud Detection</a>
-        <div class="nav-actions">
-            <a href="/Dashboard">Dashboard</a>
-            <a href="/Predict">Predict</a>
-        </div>
-    </nav>
-    <main class="chart-shell">
-        <div class="page-heading">
-            <p class="eyebrow">Model Comparison</p>
-            <h1>Algorithm performance</h1>
-            <p class="muted">Accuracy and F-score comparison for all trained classifiers.</p>
-        </div>
-        <div class="chart-panel">
-            <canvas id="myChart"></canvas>
-        </div>
-    </main>
 
-    <script>
-        const labels = {{ labels|tojson }};
-        const accuracy = {{ accuracy|tojson }};
-        const fscore = {{ fscore|tojson }};
+<body style="background:#0f2027; color:white; text-align:center;">
 
-        new Chart(document.getElementById('myChart'), {
-            type: 'bar',
-            data: {
-                labels,
-                datasets: [
-                    {
-                        label: 'Accuracy',
-                        data: accuracy,
-                        backgroundColor: 'rgba(29, 78, 216, 0.78)',
-                        borderColor: 'rgba(29, 78, 216, 1)',
-                        borderWidth: 1
-                    },
-                    {
-                        label: 'F-Score',
-                        data: fscore,
-                        backgroundColor: 'rgba(16, 185, 129, 0.78)',
-                        borderColor: 'rgba(16, 185, 129, 1)',
-                        borderWidth: 1
-                    }
-                ]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        max: 100,
-                        ticks: { color: '#475569' },
-                        grid: { color: 'rgba(148, 163, 184, 0.25)' }
-                    },
-                    x: {
-                        ticks: { color: '#475569' },
-                        grid: { display: false }
-                    }
-                },
-                plugins: {
-                    legend: {
-                        labels: { color: '#0f172a' }
-                    }
-                }
-            }
-        });
-    </script>
+<h2>📊 All Algorithms Performance</h2>
+
+<!-- SAFE BACK BUTTON -->
+<a href="/Dashboard">
+    <button class="back-btn">
+        🔙 Back
+    </button>
+</a>
+
+<canvas id="myChart" width="800" height="400"></canvas>
+
+<script>
+
+// ✅ SIMPLE STATIC DATA (NO ERROR)
+const labels = [
+'Logistic Regression','Decision Tree','Random Forest','KNN','ANN',
+'Gradient Boosting','LightGBM','XGBoost','Naive Bayes','SVM','CNN','DNN','RNN'
+];
+
+const accuracy = [97.267,98.933,77.467,73.200,72.400,98.000,98.533,98.667,89.333,73.800,95.667,73.800,98.733];
+
+const fscore = [96.457,98.639,59.310,43.215,55.523,97.475,98.137,98.304,87.606,42.463,94.599,42.463,98.382];
+
+// ✅ ONLY 2 DATASETS (clean look)
+const data = {
+    labels: labels,
+    datasets: [
+        {
+            label: 'Accuracy',
+            data: accuracy
+        },
+        {
+            label: 'FScore',
+            data: fscore
+        }
+    ]
+};
+
+// ✅ SIMPLE ANIMATION
+const config = {
+    type: 'bar',
+    data: data,
+    options: {
+        animation: {
+            duration: 1000   // smooth but simple
+        }
+    }
+};
+
+// ✅ DRAW GRAPH
+new Chart(document.getElementById('myChart'), config);
+
+</script>
+
 </body>
 </html>

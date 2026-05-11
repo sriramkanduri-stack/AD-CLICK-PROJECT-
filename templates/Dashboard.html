@@ -1,176 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Fraud Detection Dashboard</title>
-
-<style>
-body{
-    margin:0;
-    font-family:Arial;
-    background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
-    color:white;
-}
-
-/* TOP BAR */
-.topbar{
-    position:relative;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:15px;
-    background:rgba(0,0,0,0.4);
-    box-shadow:0 0 15px #00ffe1;
-}
-
-/* CENTER TITLE */
-.title{
-    font-size:22px;
-    font-weight:bold;
-    color:#00ffe1;
-}
-
-/* LEFT HOME */
-.home-btn{
-    position:absolute;
-    left:15px;
-    background:#00ffe1;
-    border:none;
-    padding:8px 15px;
-    border-radius:8px;
-    cursor:pointer;
-    font-weight:bold;
-}
-
-/* RIGHT LOGOUT */
-.logout-btn{
-    position:absolute;
-    right:15px;
-    background:#ff4d4d;
-    border:none;
-    padding:8px 15px;
-    border-radius:8px;
-    cursor:pointer;
-    font-weight:bold;
-    color:white;
-}
-
-/* WELCOME */
-.welcome{
-    text-align:center;
-    margin-top:30px;
-}
-
-.welcome h1{
-    font-size:28px;
-    color:#00ffe1;
-    text-shadow:0 0 10px #00ffe1;
-}
-
-/* LAYOUT */
-.container{
-    display:grid;
-    grid-template-columns:30% 70%;
-    gap:20px;
-    padding:20px;
-    align-items:start;  /* ✅ FIXED */
-}
-
-/* CONTROL PANEL */
-.panel{
-    background:rgba(255,255,255,0.05);
-    padding:20px;
-    border-radius:15px;
-    box-shadow:0 0 10px rgba(0,255,225,0.4);
-}
-
-/* BUTTONS */
-.btn{
-    width:100%;
-    padding:15px;
-    margin:10px 0;
-    border:none;
-    border-radius:10px;
-    cursor:pointer;
-    font-size:16px;
-    transition:0.3s;
-}
-
-.btn:hover{
-    transform:scale(1.05);
-}
-
-.predict-btn{ background:#00ff99; }
-.graph-btn{ background:#ffcc00; }
-
-/* OUTPUT */
-.output{
-    background:rgba(255,255,255,0.05);
-    border-radius:15px;
-    padding:20px;
-    box-shadow:0 0 10px rgba(0,255,225,0.4);
-    min-height:300px;
-
-    display:flex;              /* ✅ FIXED */
-    flex-direction:column;     /* ✅ FIXED */
-    align-items:center;        /* center horizontally */
-    justify-content:flex-start;/* keep at top */
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fraud Detection Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='default.css') }}">
 </head>
+<body class="app-page">
+    <nav class="app-topbar">
+        <a class="brand" href="/Dashboard">Fraud Detection</a>
+        <div class="nav-actions">
+            <a href="/index">Home</a>
+            <a href="/Logout">Logout</a>
+        </div>
+    </nav>
 
-<body>
+    <main class="app-shell">
+        <aside class="side-panel">
+            <p class="eyebrow">Control Panel</p>
+            <h1>Ad Click Fraud Detection</h1>
+            <a class="button button-primary full" href="/Predict">Run Prediction</a>
+            <a class="button button-secondary full" href="/Graph">Result Graph</a>
+            <a class="button button-secondary full" href="/AllGraph">Algorithm Metrics</a>
+        </aside>
 
-<!-- TOP BAR -->
-<div class="topbar">
-
-    <button class="home-btn" onclick="window.location.href='/index'">🏠 Home</button>
-
-    <div class="title">📊 Fraud Detection Dashboard</div>
-
-    <button class="logout-btn" onclick="window.location.href='/Logout'">🚪 Logout</button>
-
-</div>
-
-<!-- WELCOME -->
-<div class="welcome">
-    <h1>✨ Welcome to Ad Click Fraud Detection System ✨</h1>
-    <p>Monitor | Analyze | Predict</p>
-</div>
-
-<!-- DASHBOARD -->
-<div class="container">
-
-    <!-- CONTROL PANEL -->
-    <div class="panel">
-        <h3 style="color:#00ffe1;">Control Panel</h3>
-
-        <button class="btn predict-btn" onclick="window.location.href='/Predict'">
-            🤖 Predict
-        </button>
-
-        <button class="btn graph-btn" onclick="window.location.href='/Graph'">
-            📊 Graph Result
-        </button>
-
-        <button class="btn" style="background:#00bfff;" onclick="window.location.href='/AllGraph'">
-            📊 All Algorithms Graph
-        </button>
-    </div>
-
-    <!-- OUTPUT -->
-    <div class="output">
-        <h2>Dashboard Output</h2>
-
-        <img src="/static/mechanism.gif"
-             style="max-width:400px;
-                    max-height:250px;
-                    object-fit:contain;
-                    border-radius:12px;
-                    box-shadow:0 0 15px #00ffe1;">
-    </div>
-
-</div>
-
+        <section class="dashboard-main">
+            <div class="page-heading">
+                <p class="eyebrow">Dashboard</p>
+                <h2>Monitor, analyze, and classify click activity.</h2>
+            </div>
+            <div class="stat-grid">
+                <article class="stat-card">
+                    <span>Model</span>
+                    <strong>CNN + Attention</strong>
+                </article>
+                <article class="stat-card">
+                    <span>Input</span>
+                    <strong>CSV Test Data</strong>
+                </article>
+                <article class="stat-card">
+                    <span>Output</span>
+                    <strong>Human / Fraud</strong>
+                </article>
+            </div>
+            <div class="visual-panel">
+                <img src="{{ url_for('static', filename='mechanism.gif') }}" alt="Fraud detection workflow">
+            </div>
+        </section>
+    </main>
 </body>
 </html>

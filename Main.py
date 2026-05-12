@@ -188,10 +188,10 @@ def PredictAction():
     # ================= SAFE GRAPH =================
     try:
         human = list(predict).count(0)
-        fraud = list(predict).count(1)
+        bot = list(predict).count(1)
 
-        labels_graph = ['Human', 'Fraud']
-        values = [human, fraud]
+        labels_graph = ['Human', 'bot']
+        values = [human, bot]
 
         if not os.path.exists("static"):
             os.makedirs("static")
